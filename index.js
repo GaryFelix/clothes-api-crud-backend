@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express();
 const mongoose = require('mongoose');
 const PORT = 8080;
@@ -8,7 +9,7 @@ const productRoute = require('./routes/product.route.js');
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(cors());
 
 //routes
 app.use("/api/products", productRoute);
